@@ -1,0 +1,51 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-04-29T14:54:45Z"
+  labels:
+    app: ratings
+    app.kubernetes.io/component: ratings
+    app.kubernetes.io/instance: ratings
+  name: ratings
+  namespace: bookinfo
+  resourceVersion: "404950655"
+  selfLink: /apis/build.openshift.io/v1/namespaces/bookinfo/buildconfigs/ratings
+  uid: 5d8b0883-8a29-11ea-a6ee-0a580a820124
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: ratings:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: migrating-apps-v3/1.1
+      uri: https://github.com/rh-tstockwell/bookinfo-ratings.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nodejs:10
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: teGQRFtH9DQTQO3Fwhu5
+    type: GitHub
+  - generic:
+      secret: QlTal-G7LyCn7u5DVhOh
+    type: Generic
+  - type: ConfigChange
+  - imageChange:
+      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:bce9d648821108fb7046b33b6f3f1b49607fd44a242de2a6a0a538f56e353153
+    type: ImageChange
+status:
+  lastVersion: 1

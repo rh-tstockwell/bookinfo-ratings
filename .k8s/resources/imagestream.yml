@@ -1,0 +1,29 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-04-29T14:54:45Z"
+  generation: 1
+  labels:
+    app: ratings
+    app.kubernetes.io/component: ratings
+    app.kubernetes.io/instance: ratings
+  name: ratings
+  namespace: bookinfo
+  resourceVersion: "404953722"
+  selfLink: /apis/image.openshift.io/v1/namespaces/bookinfo/imagestreams/ratings
+  uid: 5d67e7f3-8a29-11ea-a6ee-0a580a820124
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/bookinfo/ratings
+  publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster.example.com/bookinfo/ratings
+  tags:
+  - items:
+    - created: "2020-04-29T14:57:24Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/bookinfo/ratings@sha256:8f5f7e85de3d7feaa71477c310c0d9742f39771beaf0395de3eeb848be0cb307
+      generation: 1
+      image: sha256:8f5f7e85de3d7feaa71477c310c0d9742f39771beaf0395de3eeb848be0cb307
+    tag: latest
