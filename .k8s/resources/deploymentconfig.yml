@@ -1,19 +1,12 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: "2020-04-29T14:54:45Z"
-  generation: 2
+  annotations: {}
   labels:
     app: ratings
     app.kubernetes.io/component: ratings
     app.kubernetes.io/instance: ratings
   name: ratings
-  namespace: bookinfo
-  resourceVersion: "404954347"
-  selfLink: /apis/apps.openshift.io/v1/namespaces/bookinfo/deploymentconfigs/ratings
-  uid: 5dafdd1f-8a29-11ea-b451-0a580a80011a
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -31,15 +24,12 @@ spec:
     type: Rolling
   template:
     metadata:
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-      creationTimestamp: null
+      annotations: {}
       labels:
         deploymentconfig: ratings
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/bookinfo/ratings@sha256:8f5f7e85de3d7feaa71477c310c0d9742f39771beaf0395de3eeb848be0cb307
-        imagePullPolicy: Always
+      - imagePullPolicy: Always
         name: ratings
         ports:
         - containerPort: 8080
@@ -63,29 +53,4 @@ spec:
         kind: ImageStreamTag
         name: ratings:latest
         namespace: bookinfo
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/bookinfo/ratings@sha256:8f5f7e85de3d7feaa71477c310c0d9742f39771beaf0395de3eeb848be0cb307
     type: ImageChange
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2020-04-29T14:57:47Z"
-    lastUpdateTime: "2020-04-29T14:57:47Z"
-    message: Deployment config has minimum availability.
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2020-04-29T14:57:52Z"
-    lastUpdateTime: "2020-04-29T14:57:52Z"
-    message: replication controller "ratings-1" successfully rolled out
-    reason: NewReplicationControllerAvailable
-    status: "True"
-    type: Progressing
-  details:
-    causes:
-    - type: ConfigChange
-    message: config change
-  latestVersion: 1
-  observedGeneration: 2
-  readyReplicas: 1
-  replicas: 1
-  unavailableReplicas: 0
-  updatedReplicas: 1

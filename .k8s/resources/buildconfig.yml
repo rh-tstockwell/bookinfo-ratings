@@ -1,18 +1,12 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: "2020-04-29T14:54:45Z"
+  annotations: {}
   labels:
     app: ratings
     app.kubernetes.io/component: ratings
     app.kubernetes.io/instance: ratings
   name: ratings
-  namespace: bookinfo
-  resourceVersion: "404950655"
-  selfLink: /apis/build.openshift.io/v1/namespaces/bookinfo/buildconfigs/ratings
-  uid: 5d8b0883-8a29-11ea-a6ee-0a580a820124
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null
@@ -44,8 +38,5 @@ spec:
       secret: QlTal-G7LyCn7u5DVhOh
     type: Generic
   - type: ConfigChange
-  - imageChange:
-      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:bce9d648821108fb7046b33b6f3f1b49607fd44a242de2a6a0a538f56e353153
+  - imageChange: {}
     type: ImageChange
-status:
-  lastVersion: 1
